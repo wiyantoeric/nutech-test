@@ -1,23 +1,26 @@
 import { type RouteConfig, index, layout, prefix, route } from "@react-router/dev/routes";
 
 export default [
+    // route("*", "src/layouts/ErrorLayout.tsx"),
+
     // Guest routes
-    layout("layouts/guestLayout.tsx", [
-        route("register", "pages/auth/register.tsx"),
-        route("login", "pages/auth/login.tsx"),
+    layout("src/layouts/guestLayout.tsx", [
+        index("src/features/HomePage.tsx"),
+        route("register", "src/features/auth/RegisterPage.tsx"),
+        route("login", "src/features/auth/LoginPage.tsx"),
     ]),
 
     // Authenticated routes
-    layout("layouts/authLayout.tsx", [
+    layout("src/layouts/authLayout.tsx", [
         ...prefix("app", [
-            index("pages/app/home.tsx"),
-            route("top-up", "pages/app/topup.tsx"),
-            route("service/:serviceCode", "pages/app/service.tsx"),
-            route("transactions", "pages/app/transactions.tsx"),
-            
-            route("account", "pages/app/account.tsx"),
+            index("src/features/app/HomePage.tsx"),
+            route("top-up", "src/features/wallet/TopUpPage.tsx"),
+            route("service/:serviceCode", "src/features/transaction/ServicePage.tsx"),
+            route("transactions", "src/features/transaction/TransactionPage.tsx"),
 
-            // route("transactions/:transaction", "pages/app/topup.tsx"),
+            route("account", "src/features/auth/AccountPage.tsx"),
+
+            // route("transactions/:transaction", "src/features/auth/topup.tsx"),
         ])
     ]),
 ] satisfies RouteConfig;
