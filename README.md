@@ -1,7 +1,6 @@
 # SIMS PPOB - Eric Wiyanto
 
 ## Project Structure
-Micro-frontend pattern with react-router.
 ```
 app
 ├─ app.css
